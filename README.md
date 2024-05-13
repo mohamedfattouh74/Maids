@@ -4,10 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Tools Used
 
-1- Angular 
-2- Angular Material
-3- NGRX
-4- Tailwind CSS
+- Angular 
+- Angular Material
+- NGRX
+- Tailwind CSS
 
 ## Development server
 
