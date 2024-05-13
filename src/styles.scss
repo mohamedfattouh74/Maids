@@ -1,0 +1,17 @@
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ngx-pagination {
+    text-align: center;
+    margin-top: 30px !important;
+  }
+
+.ngx-pagination .current {
+    background: #0b7285 !important;
+  }
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #F3F0EB;}

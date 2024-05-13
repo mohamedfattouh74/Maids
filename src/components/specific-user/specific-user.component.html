@@ -1,0 +1,16 @@
+@defer {
+    <button [routerLink]="['/users']" class="pt-12 pl-12 hover:text-[#454545] duration-300 font-medium">&larr; Back to users</button>
+        <div class="flex items-center justify-center flex-col pt-28">
+            <img class="rounded-full" [src]='specificUser?.avatar'>
+            <div class="text-content pt-6 text-center">
+                <p class="text-[#272727] text-xl pb-2 tracking-wide"><span class="font-medium">User ID: </span>{{ specificUser?.id }}</p>
+                <p class="text-[#272727] text-xl pb-2 tracking-wide"><span class="font-medium">First Name: </span>{{ specificUser?.first_name }}</p>
+                <p class="text-[#272727] text-xl pb-2 tracking-wide"><span class="font-medium">Last Name: </span>{{ specificUser?.last_name }}</p>  
+                <p class="text-[#454545] px-4"> {{ specificUser?.email }} </p>
+              </div>
+        </div>  
+
+}
+@loading (minimum 1s){
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+}

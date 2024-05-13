@@ -1,0 +1,35 @@
+
+@defer {
+    <div class="flex justify-center items-center pt-2">
+      <input (keyup)="filterUsers($event)" class="w-52 hover:w-72 duration-300 focus:outline-0 focus:ring-2 focus:ring-teal-600 py-2 px-4 border border-gray-300 rounded-md" placeholder="Search...">
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[70%] gap-14 mx-auto pt-12">
+        @for (user of users | paginate : { itemsPerPage: itemsPerPage,
+            currentPage: page, totalItems: totalItems }; track user?.id) {
+            <div [routerLink]="['/user',user?.id]" cli class="w-64 h-64 bg-[#0B7285] relative rounded-lg shadow-sm hover:shadow-2xl duration-300 hover:scale-105 hover:cursor-pointer">
+                <img class="w-28 h-28 absolute rounded-full -top-6 left-20" [src]="user?.avatar" />
+                <div class="text-content pt-24 text-center">
+                  <p class="text-[#E7F1F3] pb-2 tracking-wide">{{ user?.first_name }} {{ user?.last_name }}</p>
+                  <p class="text-[#4ABCD1] px-4"> {{ user?.email }} </p>
+                </div>
+              </div>
+        }  
+        @empty {
+            <p class="flex justify-center items-center text-2xl col-span-3 text-center pt-40">No Users</p>
+        }
+    </div>
+
+    <div>
+        <pagination-controls
+          *ngIf="users.length>0"
+          previousLabel="Prev"
+          nextLabel="Next"
+          (pageChange)="onPageChange($event)"
+        >
+        </pagination-controls>
+      </div>
+
+}
+@loading (minimum 1s){
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+}
